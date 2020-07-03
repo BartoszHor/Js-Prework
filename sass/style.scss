@@ -14,4 +14,21 @@ body {
 
 .messages {
 	text-align: center;
-}
+	margin: 40px 0;
+	div {
+		 font-size: 20px;
+		  padding: 16px;
+		  width: 250px;
+		  margin: 40px 24px;
+		  border: 1px solid gold;
+		  border-radius: 10%;
+		  align-text: center;
+		  display: inline-block;
+		  &:hover {
+		  	background-color: gold;
+		  	opacity: 0.6;
+		  }
+		} div:nth-of-type(3) {
+			border: 3px solid red;
+		}
+	}
