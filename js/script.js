@@ -53,26 +53,12 @@ function playGame(playerInput) {
 	function displayResult(argComputerMove, argPlayerMove) {
 		console.log("Test")
 		console.log(argComputerMove, argPlayerMove)
-	if( computerMove == "kamień" && playerMove == "papier") {
+	if((computerMove == "kamień" && playerMove == "papier") || (computerMove == "papier" && playerMove == "nożyce") || (computerMove == "nożyce" && playerMove == "kamień")) {
 	   printMessage('Wygrana gracza');
-	} else if (computerMove == "papier" && playerMove == "kamień") {
-		printMessage('Wygrywa komputer');
-	} else if (computerMove == "nożyce" && playerMove == "nożyce") {
-		printMessage("Remis");
-	} else if (computerMove == "kamień" && playerMove == "kamień") {
-		printMessage("Remis");
-	} else if (computerMove == "papier" && playerMove == "papier") {
-		printMessage("Remis");
-	} else if (computerMove == "nożyce" && playerMove == "kamień") {
-		printMessage('Wygrana gracza');
-	} else if (computerMove == "nożyce" && playerMove == "papier") {
-		printMessage('Wygrywa komputer');
-	} else if (computerMove == "kamień" && playerMove == "nożyce") {
-		printMessage("Wygrywa komputer");
-	} else if (computerMove == "papier" && playerMove == "nożyce") {
-		printMessage("Wygrana gracza");
-	} else {
-		playerMove;	
+	} else if ((computerMove == "kamień" && playerMove == "nożyce") || (computerMove == "papier" && playerMove == "kamień") || (computerMove == "nożyce" && playerMove == "papier")) {
+		printMessage('Wygrana komputera');
+	} else if (computerMove === playerMove) {
+		printMessage('Remis');
 		}
 	}
 
@@ -88,5 +74,5 @@ document.getElementById("paper").addEventListener("click", function(){
 document.getElementById("scissors").addEventListener("click", function(){
   playGame(3);
 })
-
+ 
 
