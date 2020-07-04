@@ -1,3 +1,5 @@
+'use strict';
+
 function playGame(playerInput) {
 
 	clearMessages()
@@ -37,7 +39,8 @@ function playGame(playerInput) {
 
 	console.log('Gracz wpisał: ' + playerInput);
 
-	let playerMove = getMoveName(playerInput)
+	let playerMove = getMoveName(playerInput);
+	printMessage('Ruch gracza to: ' + playerMove);
 
 	/*
 	if(playerInput == '1'){
@@ -48,21 +51,18 @@ function playGame(playerInput) {
 	  playerMove = "nożyce"
 	}
 	*/
-	printMessage('Ruch gracza to: ' + playerMove);
 
 	function displayResult(argComputerMove, argPlayerMove) {
 		console.log("Test")
 		console.log(argComputerMove, argPlayerMove)
-	if((computerMove == "kamień" && playerMove == "papier") || (computerMove == "papier" && playerMove == "nożyce") || (computerMove == "nożyce" && playerMove == "kamień")) {
+	if((argComputerMove == "kamień" && argPlayerMove == "papier") || (argComputerMove == "papier" && argPlayerMove == "nożyce") || (argComputerMove == "nożyce" && argPlayerMove == "kamień")) {
 	   printMessage('Wygrana gracza');
-	} else if ((computerMove == "kamień" && playerMove == "nożyce") || (computerMove == "papier" && playerMove == "kamień") || (computerMove == "nożyce" && playerMove == "papier")) {
+	} else if ((argComputerMove == "kamień" && argPlayerMove == "nożyce") || (argComputerMove == "papier" && argPlayerMove == "kamień") || (argComputerMove == "nożyce" && argPlayerMove == "papier")) {
 		printMessage('Wygrana komputera');
-	} else if (computerMove === playerMove) {
+	} else if (argComputerMove === argPlayerMove) {
 		printMessage('Remis');
 		}
-	}
-
-	let result = displayResult(computerMove, playerMove);
+	} let result = displayResult(computerMove, playerMove)
 }
 
 document.getElementById("rock").addEventListener("click", function(){
