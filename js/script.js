@@ -57,11 +57,11 @@ function playGame(playerInput) {
 		console.log(argComputerMove, argPlayerMove)
 	if((argComputerMove == "kamień" && argPlayerMove == "papier") || (argComputerMove == "papier" && argPlayerMove == "nożyce") || (argComputerMove == "nożyce" && argPlayerMove == "kamień")) {
 	   printMessage('Wygrana gracza');
-	} else if ((argComputerMove == "kamień" && argPlayerMove == "nożyce") || (argComputerMove == "papier" && argPlayerMove == "kamień") || (argComputerMove == "nożyce" && argPlayerMove == "papier")) {
-		printMessage('Wygrana komputera');
 	} else if (argComputerMove === argPlayerMove) {
 		printMessage('Remis');
-		}
+	} else {
+		printMessage('Wygrana komputera');
+	}
 	} let result = displayResult(computerMove, playerMove)
 }
 
@@ -75,4 +75,5 @@ document.getElementById("scissors").addEventListener("click", function(){
   playGame(3);
 })
  
+
 
