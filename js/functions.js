@@ -17,3 +17,11 @@ function printMessage2(msg){
 function clearMessages2(){
 	document.getElementById('result').innerHTML = '';
 }
+
+function rerunGame(){
+	if ((computerWins >= 5) || (playerWins >= 5)) {
+	clearMessages2()
+	computerWins = 0;
+	playerWins = 0;
+	}
+}
