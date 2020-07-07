@@ -23,50 +23,39 @@ function playGame(playerInput) {
 
 	let computerMove = getMoveName(randomNumber)
 
-	/*
-	if(randomNumber == 1){
-	  computerMove = 'kamień';
-	} else if (randomNumber == 2) {
-	  computerMove = "papier"
-	} else if (randomNumber == 3) {
-	  computerMove = "nożyce"
-	}
-	*/
-
 	printMessage('Ruch komputera to: ' + computerMove);
-
-	/*let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');*/
 
 	console.log('Gracz wpisał: ' + playerInput);
 
 	let playerMove = getMoveName(playerInput);
 	printMessage('Ruch gracza to: ' + playerMove);
 
-	/*
-	if(playerInput == '1'){
-	  playerMove = 'kamień';
-	} else if (playerInput == "2") {
-	  playerMove = "papier"
-	} else if (playerInput == "3") {
-	  playerMove = "nożyce"
-	}
-	*/
+	let result = displayResult(computerMove, playerMove);
+
 
 	function displayResult(argComputerMove, argPlayerMove) {
 		console.log("Test")
 		console.log(argComputerMove, argPlayerMove)
 	if((argComputerMove == "kamień" && argPlayerMove == "papier") || (argComputerMove == "papier" && argPlayerMove == "nożyce") || (argComputerMove == "nożyce" && argPlayerMove == "kamień")) {
-	   printMessage('Wygrana gracza');
+	   printMessage('Wygrana gracza')
+	   playerWins++
+	   clearMessages2();
+	   printMessage2("Wynik gracza: " + playerWins)
+	   printMessage2("Wynik komputera: " + computerWins)
 	} else if (argComputerMove === argPlayerMove) {
 		printMessage('Remis');
 	} else {
 		printMessage('Wygrana komputera');
+		computerWins++
+		clearMessages2();
+		printMessage2("Wynik gracza: " + playerWins)
+		printMessage2("Wynik komputera: " + computerWins)
+		}
 	}
-	} let result = displayResult(computerMove, playerMove)
-}
+} 
 
 document.getElementById("rock").addEventListener("click", function(){
-  playGame(1);
+   playGame(1);
 })
 document.getElementById("paper").addEventListener("click", function(){
   playGame(2);
@@ -74,6 +63,9 @@ document.getElementById("paper").addEventListener("click", function(){
 document.getElementById("scissors").addEventListener("click", function(){
   playGame(3);
 })
- 
+
+let computerWins = 0;
+let playerWins = 0;
+
 
 
