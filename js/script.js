@@ -1,12 +1,12 @@
 'use strict';
 {
-	function playGame(playerInput) {
+	const playGame = function(playerInput) {
 
 	clearMessages("messages");
 
-	const randomNumber = Math.floor(Math.random() * 3 + 1);
-	const computerMove = getMoveName(randomNumber);
-	const playerMove = getMoveName(playerInput);
+	let randomNumber = Math.floor(Math.random() * 3 + 1);
+	let computerMove = getMoveName(randomNumber);
+	let playerMove = getMoveName(playerInput);
 
 	function getMoveName(argMoveId){
 		if(argMoveId == 1){
@@ -24,7 +24,7 @@
 	printMessage("messages", 'Ruch komputera to: ' + computerMove);
 	printMessage("messages", 'Ruch gracza to: ' + playerMove);
 
-	const result = displayResult(computerMove, playerMove);
+	let result = displayResult(computerMove, playerMove);
 
 		function displayResult(x, y) {
 			console.log("Test")
