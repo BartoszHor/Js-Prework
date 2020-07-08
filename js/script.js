@@ -50,7 +50,7 @@
 	let computerWins = 0;
 	let playerWins = 0;
 
-	function rerunGame(){		
+	const rerunGame = function(){		
 		if ((computerWins > 4) || (playerWins > 4)) {
 			clearMessages("result") 
 			printMessage("result", "Wynik gracza: " + playerWins)
