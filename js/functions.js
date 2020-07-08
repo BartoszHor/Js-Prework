@@ -1,27 +1,12 @@
-function printMessage(msg){
+function printMessage(id, msg){
 	let div = document.createElement('div');
 	div.innerHTML = msg;
-	document.getElementById('messages').appendChild(div);
+	document.getElementById(id).appendChild(div);
 }
 
-function clearMessages(){
-	document.getElementById('messages').innerHTML = '';
+function clearMessages(id){
+	document.getElementById(id).innerHTML = '';
 }
 
-function printMessage2(msg){
-	let div = document.createElement('div');
-	div.innerHTML = msg;
-	document.getElementById('result').appendChild(div);
-}
 
-function clearMessages2(){
-	document.getElementById('result').innerHTML = '';
-}
 
-function rerunGame(){
-	if ((computerWins >= 5) || (playerWins >= 5)) {
-	clearMessages2()
-	computerWins = 0;
-	playerWins = 0;
-	}
-}

@@ -1,8 +1,11 @@
 'use strict';
+let rock = document.getElementById("rock");
+let paper = document.getElementById("paper");
+let scissors = document.getElementById("scissors");
 
 function playGame(playerInput) {
 
-	clearMessages()
+	clearMessages("messages")
 
 let randomNumber = Math.floor(Math.random() * 3 + 1);
 
@@ -18,18 +21,14 @@ let playerMove = getMoveName(playerInput);
 	  } else if (argMoveId == 3){
 	  	return 'nożyce'
 	  } else {
-	    printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+	    printMessage("messages", 'Nie znam ruchu o id ' + argMoveId + '.');
 	    return 'nieznany ruch';
 	  }
 	}
 
-	//console.log('Wylosowana liczba to: ' + randomNumber);
+	printMessage("messages", 'Ruch komputera to: ' + computerMove);
 
-	printMessage('Ruch komputera to: ' + computerMove);
-
-	//console.log('Gracz wpisał: ' + playerInput);
-
-	printMessage('Ruch gracza to: ' + playerMove);
+	printMessage("messages", 'Ruch gracza to: ' + playerMove);
 
 	let result = displayResult(computerMove, playerMove);
 
@@ -37,32 +36,32 @@ let playerMove = getMoveName(playerInput);
 		console.log("Test")
 		console.log(x, y)
 	if((x == "kamień" && y == "papier") || (x == "papier" && y == "nożyce") || (x == "nożyce" && y == "kamień")) {
-	   printMessage('Wygrana gracza')
+	   printMessage("messages", 'Wygrana gracza')
 	   playerWins++
-	   clearMessages2();
-	   printMessage2("Wynik gracza: " + playerWins)
-	   printMessage2("Wynik komputera: " + computerWins)
+	   clearMessages("result");
+	   printMessage("result","Wynik gracza: " + playerWins)
+	   printMessage("result", "Wynik komputera: " + computerWins)
 	} else if (x === y) {
-		printMessage('Remis');
+		printMessage("messages", 'Remis');
 	} else {
-		printMessage('Wygrana komputera');
-		computerWins++
-		clearMessages2();
-		printMessage2("Wynik gracza: " + playerWins)
-		printMessage2("Wynik komputera: " + computerWins)
+		printMessage("messages", 'Wygrana komputera');
+		computerWins++;
+		clearMessages("result");
+		printMessage("result", "Wynik gracza: " + playerWins)
+		printMessage("result", "Wynik komputera: " + computerWins)
 		}
 	}
 } 
 
-document.getElementById("rock").addEventListener("click", function(){
+rock.addEventListener("click", function(){
    playGame(1)
    rerunGame()
 })
-document.getElementById("paper").addEventListener("click", function(){
+paper.addEventListener("click", function(){
   playGame(2)
   rerunGame()
 })
-document.getElementById("scissors").addEventListener("click", function(){
+scissors.addEventListener("click", function(){
   playGame(3)
   rerunGame()
 })
@@ -72,17 +71,18 @@ let playerWins = 0;
 
 function rerunGame(){
 	if ((computerWins > 4) || (playerWins > 4)) {
-	clearMessages2()
-	computerWins = 0;
-	playerWins = 0; 
-	printMessage2("Wynik gracza: " + playerWins)
-	printMessage2("Wynik komputera: " + computerWins)
-	} else if ((computerWins >= 4) && (playerWins < 4)) {
-		clearMessages2();
-		printMessage2("Wygrywa komputer");
-	} else if ((computerWins < 4) && (playerWins >= 4)) {
-		clearMessages2();
-		printMessage2("Wygrywa gracz");
+		clearMessages("result") 
+		printMessage("result", "Wynik gracza: " + playerWins)
+		printMessage("result", "Wynik komputera: " + computerWins)
+		console.log (playerWins, computerWins);
+		if (computerWins == 5) {
+			clearMessages("result");
+			printMessage("result", "Wygrywa komputer");
+		} else {
+			clearMessages("result");
+			printMessage("result", "Wygrywa gracz");
+		} computerWins = 0;
+		  playerWins = 0;
 	}
 }
 
