@@ -17,10 +17,12 @@
 			printMessage("messages", 'Nie znam ruchu o id ' + argMoveId + '.');
 			return 'nieznany ruch';
 			}
-		}
+		} 
+	const computerMove = getMoveName(randomNumber)
+	const playerMove = getMoveName(playerInput)
 
-	printMessage("messages", 'Ruch komputera to: ' + getMoveName(randomNumber));
-	printMessage("messages", 'Ruch gracza to: ' + getMoveName(playerInput));
+	printMessage("messages", 'Ruch komputera to: ' + computerMove);
+	printMessage("messages", 'Ruch gracza to: ' + playerMove);
 
 		const displayResult = function(x, y) {
 			console.log("Test");
@@ -40,9 +42,10 @@
 			printMessage("result", "Wynik gracza: " + playerWins);
 			printMessage("result", "Wynik komputera: " + computerWins);
 			}
-		}
-	displayResult(getMoveName(randomNumber), getMoveName(playerInput));
+		} 
+	displayResult(computerMove, playerMove);
 	} 
+
 
 	let computerWins = 0;
 	let playerWins = 0;
