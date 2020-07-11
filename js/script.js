@@ -6,7 +6,7 @@
 
 	const randomNumber = Math.floor(Math.random() * 3 + 1);
 
-	const getMoveName = function(argMoveId){
+	let getMoveName = function(argMoveId){
 	   if(argMoveId == 1){
 	    	return 'kamień';
 	   } else if(argMoveId == 2){
@@ -42,8 +42,8 @@
 		printMessage("result", "Wynik gracza: " + playerWins);
 		printMessage("result", "Wynik komputera: " + computerWins);
 		}
-	} displayResult(computerMove, playerMove);
-} 
+	} 
+} displayResult(computerMove, playerMove)
 
 	let computerWins = 0;
 	let playerWins = 0;
