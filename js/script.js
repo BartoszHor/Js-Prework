@@ -18,11 +18,11 @@
 			return 'nieznany ruch';
 		}
 	} 
-	const computeMove = getMoveName(randomNumber)
+	const computerMove = getMoveName(randomNumber)
 	const playerMove = getMoveName(playerInput)
 
-	printMessage("messages", 'Ruch komputera to: ' + getMoveName(randomNumber));
-	printMessage("messages", 'Ruch gracza to: ' + getMoveName(playerInput))
+	printMessage("messages", 'Ruch komputera to: ' + computerMove);
+	printMessage("messages", 'Ruch gracza to: ' + playerMove)
 
 
 	function displayResult(x, y) {
@@ -43,7 +43,7 @@
 		printMessage("result", "Wynik gracza: " + playerWins);
 		printMessage("result", "Wynik komputera: " + computerWins);
 		} 
-	} displayResult(computeMove, playerMove);
+	} displayResult(computerMove, playerMove);
 } 
 
 	let computerWins = 0;
